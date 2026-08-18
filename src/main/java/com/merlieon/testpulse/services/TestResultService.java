@@ -2,11 +2,12 @@ package com.merlieon.testpulse.services;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
+import org.apache.logging.slf4j.SLF4JLogger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.merlieon.testpulse.models.Status;
@@ -16,6 +17,8 @@ import com.merlieon.testpulse.models.TestResultModel;
 public class TestResultService {
 
     private final Map<Long, TestResultModel> testResults = new HashMap<>();
+    private Logger logger = LoggerFactory.getLogger(TestResultService.class);
+
     private long nextId = 1;
 
     public TestResultService() {
@@ -43,6 +46,7 @@ public class TestResultService {
         Long id = generateNextId();
         TestResultModel newTestResult = new TestResultModel(id, testResultModel.testName(), testResultModel.testLogData(), testResultModel.errorMessage(), testResultModel.status(), testResultModel.duration(), testResultModel.timestamp(), testResultModel.buildId());
         testResults.put(id, newTestResult);
+        logger.info("Saved test result with id {}", id);
         return newTestResult;
     }
 
