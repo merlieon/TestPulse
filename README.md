@@ -20,6 +20,37 @@ and exposes an API to answer those questions.
 
 🚧 Work in progress — built as a learning project in Java/Spring Boot.
 
+## How to run
+
+**Prerequisites:** a JDK compatible with Spring Boot 4.1.0 (Java 17–26; this
+project targets Java 25). No separate Maven install is needed — the project
+ships with the Maven Wrapper.
+
+From the project root:
+
+```bash
+# macOS/Linux
+./mvnw spring-boot:run
+
+# Windows (PowerShell)
+.\mvnw.cmd spring-boot:run
+```
+
+The application starts on `http://localhost:8080`. Try it with:
+
+```
+GET http://localhost:8080/api/tests/results
+```
+
+Stop the app with `Ctrl+C` in the terminal it's running in.
+
+### Building a jar
+
+```bash
+./mvnw clean package
+java -jar target/testpulse-0.0.1-SNAPSHOT.jar
+```
+
 ## API
 
 Base path: `/api/tests`

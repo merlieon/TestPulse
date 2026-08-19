@@ -39,7 +39,6 @@ public class TestResultService {
         addTestResult(testResultModel1);
         addTestResult(testResultModel2);
         addTestResult(testResultModel3);
-
     }
 
     public TestResultModel addTestResult(TestResultModel testResultModel) {
